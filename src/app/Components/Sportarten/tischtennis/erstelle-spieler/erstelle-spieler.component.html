@@ -1,0 +1,163 @@
+<div class="container">
+
+  <h1 *ngIf="mode === 'erstelleSpieler'"> Tischtennis-Spieler hinzufügen </h1>
+  <h1 *ngIf="mode === 'bearbeiten'"> Tischtennis-Spieler bearbeiten </h1>
+
+</div>
+
+<div class="container">
+
+  <!-- Container Anfang -->
+
+  <div class="row">
+
+    <div class="col-md-6 myForm">
+
+      <form [formGroup]="myForm" (ngSubmit)="myForm.valid && onSubmit()">
+
+        <!-- Spielername Input -->
+        <div class="icon">
+          <img src="assets/avatar2.png" style="max-height: 150px">
+        </div>
+
+
+        <div class="form-group">
+
+          <label> Spieler-Name </label>
+
+          <input type="text" class="form-control" formControlName="ganzername"
+            [ngClass]="{ 'is-invalid': myForm.get('ganzername').touched && myForm.get('ganzername').invalid }">
+
+          <!-- Errors: Spielername -->
+
+          <div *ngIf="myForm.get('ganzername').touched && myForm.get('ganzername').invalid" class="invalid-feedback">
+
+            <div *ngIf="myForm.get('ganzername').errors.required">
+              Spielername darf nicht leer sein!
+            </div>
+
+            <div *ngIf="myForm.get('ganzername').errors.minlength">
+              spielername muss mindestens 3 Zeichen haben!
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Alter Input -->
+
+        <div class="form-group">
+
+          <label> Alter (in Jahre) </label>
+
+          <input type="number" class="form-control" formControlName="lebensjahr"
+            [ngClass]="{ 'is-invalid': myForm.get('lebensjahr').touched && myForm.get('lebensjahr').invalid }">
+
+          <!-- Errors: Alter -->
+
+          <div *ngIf="myForm.get('lebensjahr').touched && myForm.get('lebensjahr').invalid" class="invalid-feedback">
+
+            <div *ngIf="myForm.get('lebensjahr').errors.required">
+              Alter darf nicht leer sein!
+            </div>
+
+            <div *ngIf="myForm.get('lebensjahr').errors.min">
+              Alter muss mindestens 5 betragen!
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Mannschaft Input -->
+
+        <div class="form-group">
+
+          <label>Mannschaft</label>
+
+          <select class="form-control" id="exampleFormControlSelect1" formControlName="mannschaft"
+            [ngClass]="{ 'is-invalid': myForm.get('mannschaft').touched && myForm.get('mannschaft').invalid }">
+            <option> 1. Herren </option>
+            <option> 2. Herren </option>
+            <option> 3. Herren </option>
+            <option> Jugend </option>
+            <option> Damen </option>
+          </select>
+
+          <!-- Errors: Mannschaft -->
+
+          <div *ngIf="myForm.get('mannschaft').touched && myForm.get('mannschaft').invalid" class="invalid-feedback">
+
+            <div *ngIf="myForm.get('mannschaft').errors.required">
+              Mannschaft darf nicht leer sein!
+            </div>
+
+          </div>
+        </div>
+
+        <!-- QTTR Input -->
+
+        <div class="form-group">
+
+          <label>QTTR</label>
+
+          <input type="number" class="form-control" formControlName="qttr"
+            [ngClass]="{ 'is-invalid': myForm.get('qttr').touched && myForm.get('qttr').invalid }">
+
+          <!-- Errors: QTTR -->
+
+          <div *ngIf="myForm.get('qttr').touched && myForm.get('qttr').invalid" class="invalid-feedback">
+
+            <div *ngIf="myForm.get('qttr').errors.required">
+              QTTR darf nicht leer sein!
+            </div>
+
+            <div *ngIf="myForm.get('qttr').errors.min">
+              QTTR muss mindestens 700 betragen!
+            </div>
+
+            <div *ngIf="myForm.get('qttr').errors.max">
+              QTTR kann maximal 3000 betragen!
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Bild-Pfad Input -->
+
+        <div class="form-group">
+          <label> Bild (optimal 170x150 / Verhältnis 1,7 : 1,5) </label>
+
+          <input type="file" (change)="onFileChanged($event)" formControlName="pfad">
+
+          <!-- Errors: Bildpfad -->
+
+          <div *ngIf="myForm.get('pfad').touched && myForm.get('pfad').invalid" class="invalid-feedback">
+
+            <div *ngIf="myForm.get('pfad').errors.required">
+              Pfad darf nicht leer sein!
+            </div>
+
+          </div>
+        </div>
+
+        <div *ngIf="preview">
+          <label> Bild-Vorschau </label>
+          <img [src]="preview" class="preview">
+        </div>
+
+
+
+        <!-- Bestätigen Button -->
+        <button type="submit" [disabled]="!myForm.valid" class="btn speichern">speichern</button>
+
+        <button type="button" class="btn btn-dark float-right" routerLink="/tischtennis/mannschaften">zurück</button>
+
+      </form>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Container Ende  -->
+</div>

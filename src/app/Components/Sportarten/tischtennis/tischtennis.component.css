@@ -1,0 +1,17 @@
+.title {
+  margin-top: 2%;
+  text-align: center;
+}
+.table {
+  padding: 5%;
+  margin: 3%;
+  text-align: center;
+}
+
+.container {
+  padding-bottom: 2%;
+}
+
+#trainingszeiten, #ansprechpartner {
+  border: 3px solid black;
+}

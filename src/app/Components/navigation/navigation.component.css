@@ -1,0 +1,57 @@
+.navbar {
+  background: #0f3d5e;
+  border-bottom: 1px solid whitesmoke;
+  font-family: Cambria;
+  font-size: 20px;
+  color: white;
+}
+
+.navbar-brand {
+  color: white;
+  padding: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.navbar-brand:hover {
+  backdrop-filter: brightness(150%);
+  border-radius: 5px 5px 5px 5px;
+  color: gold;
+
+}
+
+a.nav-link {
+  color: ghostwhite;
+  font-weight: bold;
+}
+a.nav-link:hover {
+  backdrop-filter: brightness(150%);
+  border-radius: 5px 5px 5px 5px;
+  color: gold;
+}
+
+#login {
+  visibility: hidden;
+}
+
+.icon {
+  margin-bottom: 4px;
+}
+
+#TTtoggle:hover {
+  cursor: pointer;
+}
+
+.collapse {
+  justify-content: center;
+}
+
+.nav-item {
+  margin-left: 30px;
+  padding-right: 30px;
+}
+
+.dropdown-item {
+  font-weight: bold;
+  padding-top: 5px;
+  font-family: Nunito;
+}

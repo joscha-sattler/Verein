@@ -1,0 +1,15 @@
+<img class="d-block w-100" src="../../../../../assets/banner-tischtennis-Galerie.jpg" alt="Tischtennis">
+
+<div class="titel">
+  <h1>Galerie</h1>
+</div>
+
+<div class="container">
+
+  <figure class="container-item" *ngFor="let bild of bilder">
+    <img src="{{bild.img}}" alt="">
+    <figcaption>{{bild.caption}}</figcaption>
+  </figure>
+
+
+</div>

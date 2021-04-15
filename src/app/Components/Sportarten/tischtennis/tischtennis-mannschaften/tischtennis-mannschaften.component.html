@@ -1,0 +1,306 @@
+<img class="d-block w-100" src="assets/banner-tischtennis-mannschaften.jpg" alt="Tischtennis">
+
+<div class="title">
+
+  <h2>Unsere Mannschaften</h2>
+
+</div>
+
+<!-- Spieler hinzufügen / bearbeiten / löschen -->
+
+<div class="container" id="adminbuttons">
+  <div class="row">
+
+    <!-- Hinzufügen -->
+
+    <div class="col-md-auto">
+      <button class="btn btn-success" routerLink="/erstelleSpieler"> Spieler hinzufügen </button>
+    </div>
+
+    <!-- Aktualisieren -->
+
+    <!-- <div class="col-md-auto">
+      <button class="btn btn-primary" (click)="updateAlleMannschaften()">
+        Spieler aktualisieren
+      </button>
+    </div> -->
+
+    <!-- Löschen -->
+
+    <div class="col-md-auto mydeleteForm">
+      <form [formGroup]="mydeleteForm" (ngSubmit)="mydeleteForm.valid && onSubmitDelete()">
+
+        <!-- Spielername Input -->
+        <div class="form-group">
+
+          <input type="text" class="form-control" formControlName="spielerid" placeholder="Spielder-ID"
+            [ngClass]="{ 'is-invalid': mydeleteForm.get('spielerid').touched && mydeleteForm.get('spielerid').invalid }">
+
+        </div>
+
+        <button type="submit" [disabled]="!mydeleteForm.valid" class="btn btn-danger">Einen Spieler löschen</button>
+
+      </form>
+    </div>
+
+    <div class="col-md-auto mydeleteForm">
+      <button (click)="deleteAlleSpieler()" class="btn btn-danger">Alle Spieler löschen</button>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- 1. Herren -------------------------------------------------------------------------------------------------------------------------------->
+
+<div class="container">
+  <h2>1. Herren</h2>
+</div>
+
+
+<div class="container rounded">
+
+  <div class="row">
+
+    <!--  Cols  -->
+
+    <div class="col-lg-2" *ngFor="let spieler of ersteHerrenSpieler">
+
+
+
+      <div class="card" style="width:170px;">
+        <img class="card-img-top" src="{{spieler.bildpfad}}" alt="Card image" style="width: 100%; height: 150px;">
+
+        <div class="card-body">
+
+          <h4 class="card-title"> {{ spieler.ganzername }} </h4>
+
+          <hr>
+
+          <p class="card-text"> Spieler-ID: {{ spieler.spielerid }} </p>
+          <p class="card-text"> {{ spieler.lebensjahr }} Jahre </p>
+          <p class="card-text"> QTTR: {{ spieler.qttr }} </p>
+
+          <div class="buttons">
+            <button type="button" class="btn btn-primary" [routerLink]="['/bearbeiten', spieler.spielerid]">
+              Bearbeiten
+            </button>
+
+            <button type="button" class="btn btn-danger" (click)="onDelete(spieler.spielerid)">
+              LÖSCHEN
+            </button>
+          </div>
+
+
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- Cols Ende -->
+
+  </div>
+
+</div>
+
+
+<!-- 2. Herren -------------------------------------------------------------------------------------------------------------------------------->
+
+<div class="container">
+  <h2>2. Herren</h2>
+</div>
+
+
+<div class="container rounded">
+
+  <div class="row" id="test2">
+
+    <!--  Cols  -->
+
+    <div class="col-lg-2" id="test3" *ngFor="let spieler of zweiteHerrenSpieler">
+
+
+
+      <div class="card" style="width:168px;">
+        <img class="card-img-top" src="{{spieler.bildpfad}}" alt="Card image" style="width: 100%; height: 150px;">
+
+        <div class="card-body">
+          <h4 class="card-title"> {{ spieler.ganzername }} </h4>
+          <hr>
+          <p class="card-text"> Spieler-ID: {{ spieler.spielerid }} </p>
+          <p class="card-text"> {{ spieler.lebensjahr }} Jahre </p>
+          <p class="card-text"> QTTR: {{ spieler.qttr }} </p>
+
+          <div class="buttons">
+            <button type="button" class="btn btn-primary" [routerLink]="['/bearbeiten', spieler.spielerid]">
+              Bearbeiten
+            </button>
+
+            <button type="button" class="btn btn-danger" (click)="onDelete(spieler.spielerid)">
+              LÖSCHEN
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- Cols Ende -->
+
+  </div>
+
+</div>
+
+
+<!-- 3. Herren -------------------------------------------------------------------------------------------------------------------------------->
+
+<div class="container">
+  <h2>3. Herren</h2>
+</div>
+
+
+<div class="container rounded">
+
+  <div class="row">
+
+    <!--  Cols  -->
+
+    <div class="col-lg-2" *ngFor="let spieler of dritteHerrenSpieler">
+
+
+
+      <div class="card" style="width:168px;">
+        <img class="card-img-top" src="{{spieler.bildpfad}}" alt="Card image" style="width: 100%; height: 150px;">
+
+        <div class="card-body">
+          <h4 class="card-title"> {{ spieler.ganzername }} </h4>
+          <hr>
+          <p class="card-text"> Spieler-ID: {{ spieler.spielerid }} </p>
+          <p class="card-text"> {{ spieler.lebensjahr }} Jahre </p>
+          <p class="card-text"> QTTR: {{ spieler.qttr }} </p>
+
+          <div class="buttons">
+            <button type="button" class="btn btn-primary" [routerLink]="['/bearbeiten', spieler.spielerid]">
+              Bearbeiten
+            </button>
+
+            <button type="button" class="btn btn-danger" (click)="onDelete(spieler.spielerid)">
+              LÖSCHEN
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- Cols Ende -->
+
+  </div>
+
+</div>
+
+
+<!-- Damen -------------------------------------------------------------------------------------------------------------------------------->
+
+<div class="container">
+  <h2>Damen</h2>
+</div>
+
+
+<div class="container rounded">
+
+  <div class="row">
+
+    <!--  Cols  -->
+
+    <div class="col-md-2" *ngFor="let spieler of DamenSpieler">
+
+
+
+      <div class="card" style="width:168px;">
+        <img class="card-img-top" src="{{spieler.bildpfad}}" alt="Card image" style="width: 100%; height: 150px;">
+
+        <div class="card-body">
+          <h4 class="card-title"> {{ spieler.ganzername }} </h4>
+          <hr>
+          <p class="card-text"> Spieler-ID: {{ spieler.spielerid }} </p>
+          <p class="card-text"> {{ spieler.lebensjahr }} Jahre </p>
+          <p class="card-text"> QTTR: {{ spieler.qttr }} </p>
+
+          <div class="buttons">
+            <button type="button" class="btn btn-primary" [routerLink]="['/bearbeiten', spieler.spielerid]">
+              Bearbeiten
+            </button>
+
+            <button type="button" class="btn btn-danger" (click)="onDelete(spieler.spielerid)">
+              LÖSCHEN
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- Cols Ende -->
+
+  </div>
+
+</div>
+
+
+<!--Jungend -------------------------------------------------------------------------------------------------------------------------------->
+
+<div class="container">
+  <h2>Jugend</h2>
+</div>
+
+
+<div class="container rounded">
+
+  <div class="row">
+
+    <!--  Cols  -->
+
+    <div class="col-lg-2" *ngFor="let spieler of JugendSpieler">
+
+
+
+      <div class="card" style="width:168px;">
+        <img class="card-img-top" src="{{spieler.bildpfad}}" alt="Card image" style="width: 100%; height: 150px;">
+
+        <div class="card-body">
+          <h4 class="card-title"> {{ spieler.ganzername }} </h4>
+          <hr>
+          <p class="card-text"> Spieler-ID: {{ spieler.spielerid }} </p>
+          <p class="card-text"> {{ spieler.lebensjahr }} Jahre </p>
+          <p class="card-text"> QTTR: {{ spieler.qttr }} </p>
+
+          <div class="buttons">
+            <button type="button" class="btn btn-primary" [routerLink]="['/bearbeiten', spieler.spielerid]">
+              Bearbeiten
+            </button>
+
+            <button type="button" class="btn btn-danger" (click)="onDelete(spieler.spielerid)">
+              LÖSCHEN
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- Cols Ende -->
+
+  </div>
+
+</div>

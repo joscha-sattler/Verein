@@ -1,0 +1,35 @@
+
+h2 {
+    text-align: center;
+    margin-top: 5%;
+}
+.text {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 75ch;
+}
+
+.title {
+    margin-top: 2%;
+    text-align: center;
+}
+.table {
+    margin: 3%;
+    text-align: center;
+}
+.container {
+    padding-bottom: 2%;
+}
+.Herren1 {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+#trainingszeiten, #ansprechpartner {
+    border: 3px solid black;
+}
+
